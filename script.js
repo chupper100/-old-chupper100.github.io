@@ -1,4 +1,4 @@
-(function () {
+$(function () {
     $('*')
         .data('hovering', false)
         .mouseover(function () { $(this).data('hovering', true) })
