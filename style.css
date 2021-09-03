@@ -3,6 +3,7 @@ a.menu-button {
 }
 
 a.home-button {
+    size: large;
     text-decoration: none;
 }
 
