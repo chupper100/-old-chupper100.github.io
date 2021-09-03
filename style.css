@@ -2,6 +2,10 @@ a.menu-button {
     text-decoration: none;
 }
 
+a.home-button {
+    text-decoration: none;
+}
+
 a:hover {
     color: red;
 }
