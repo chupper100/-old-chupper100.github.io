@@ -1,0 +1,13 @@
+[debug] [2021-11-26T05:36:05.149Z] ----------------------------------------------------------------------
+[debug] [2021-11-26T05:36:05.154Z] Command:       /usr/bin/node /usr/local/bin/firebase login
+[debug] [2021-11-26T05:36:05.154Z] CLI Version:   9.23.0
+[debug] [2021-11-26T05:36:05.158Z] Platform:      linux
+[debug] [2021-11-26T05:36:05.158Z] Node Version:  v12.22.5
+[debug] [2021-11-26T05:36:05.876Z] Time:          Fri Nov 26 2021 12:36:05 GMT+0700 (Indochina Time)
+[debug] [2021-11-26T05:36:05.876Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-11-26T05:36:05.941Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] i  Firebase optionally collects CLI usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+ 
+[debug] [2021-11-26T05:36:06.754Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2021-11-26T05:36:06.755Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
