@@ -1,7 +1,7 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 *{
-    transition: all 0.5s;
+    transition: all .3s;
 }
 
 input {
@@ -12,9 +12,29 @@ input {
 a li {
     transition: all .05s;
     mix-blend-mode: difference;
+    display: inline-block;
+}
+nav {
+    display: inline-block;
+}
+li {
+    list-style: none;
+    margin-left: 10px;
 
 }
 
-li {
-    list-style: none;
+a {
+    font-size: 50px;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    text-decoration: none;
+
+}
+
+li:hover > a {
+    color: #ff0000;
+}
+
+a:visited {
+    color: black;
 }

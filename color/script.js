@@ -1,5 +1,5 @@
 let div = document.createElement('div');
-div.innerHTML = '<h1>Enter A Color</h1><input type="text" value"Enter A Color"/>'
+div.innerHTML = '<h1>Enter A Color</h1><input type="text" value""/>'
 document.body.appendChild(div);
 
 //center div
