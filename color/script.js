@@ -1,41 +1,70 @@
-const input_div = document.getElementsByClassName('color_input')
-const input_box = document.querySelector('input');
+let div = document.createElement('div');
+div.innerHTML = '<h1>Enter A Color</h1><input type="text" value"Enter A Color"/>'
+document.body.appendChild(div);
 
-// center input div
+//center div
+div.style.position = 'absolute';
+div.style.top = '45%';
+div.style.left = '50%';
+div.style.transform = 'translate(-50%, -50%)';
+
+
+input_box = div.querySelector('input');
+
 //input_box value on change 
+
 input_box.addEventListener("input", function (e) {
     var value = e.target.value;
     //check if value is empty
-    if (value == "") {
-        document.body.style.backgroundColor = "white";
-    } else {
 
-        if (value.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)) {
-            document.body.style.backgroundColor = value;
-            console.log('rgb');
-        }
-        else if (value.match(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i)) {
-            document.body.style.backgroundColor = value;
-            console.log('hex');
-        } else if (value.match(/^[a-zA-Z]+$/)) {
-            document.body.style.backgroundColor = value;
-            console.log('text');
-        }
-        else if (value.match(/^rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d+)\)$/)) {
-            document.body.style.backgroundColor = value;
-            console.log('rgba');
-        }
+
+    if (value.match(/^\((\d+),\s*(\d+),\s*(\d+)\)$/)) {
+        document.body.style.backgroundColor = 'rgb' + value;
+        console.log('rgb');
+
 
     }
-    // set text color to contrast color
-    document.body.style.color = getContrastYIQ(document.body.style.backgroundColor);
+    else if (value.match(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i)) {
+        document.body.style.backgroundColor = value;
+        div.querySelector('h1').style.color = getContrastColor(value);
+        console.log('hex');
+    }
+    else if (value.match(/^[a-zA-Z]+$/)) {
+        document.body.style.backgroundColor = value;
+        console.log('text');
+    }
+    else if (value.match(/^\((\d+),\s*(\d+)%,\s*(\d+)%\)$/)) {
+        document.body.style.backgroundColor = 'hsl' + value;
+        console.log('hsl');
+    }
+    else if (value.match(/^\((\d+)%,\s*(\d+)%,\s*(\d+)%,\s*(\d+)%\)$/)) {
+        document.body.style.backgroundColor = 'cmyk' + value;
+        console.log('cmyk');
+    }
 });
 
-// contrast color
-function getContrastYIQ(hexcolor) {
-    var r = parseInt(hexcolor.substr(0, 2), 16);
-    var g = parseInt(hexcolor.substr(2, 2), 16);
-    var b = parseInt(hexcolor.substr(4, 2), 16);
-    var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
-    return (yiq >= 128) ? 'black' : 'white';
+// get contrast color
+function getContrastColor(hex) {
+    if (hex.indexOf('#') === 0) {
+        hex = hex.slice(1);
+    }
+    // convert 3-digit hex to 6-digits.
+    if (hex.length === 3) {
+        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+    }
+    if (hex.length !== 6) {
+        throw new Error('Invalid HEX color.');
+    }
+    // invert color components
+    var r = (255 - parseInt(hex.slice(0, 2), 16)).toString(16),
+        g = (255 - parseInt(hex.slice(2, 4), 16)).toString(16),
+        b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
+    // pad each with zeros and return
+    return '#' + padZero(r) + padZero(g) + padZero(b);
 }
+function padZero(str, len) {
+    len = len || 2;
+    var zeros = new Array(len).join('0');
+    return (zeros + str).slice(-len);
+}
+
