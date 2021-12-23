@@ -3,3 +3,18 @@
 *{
     transition: all 0.5s;
 }
+
+input {
+    border-radius: 5px;
+    align-self: center;
+}
+
+a li {
+    transition: all .05s;
+    mix-blend-mode: difference;
+
+}
+
+li {
+    list-style: none;
+}
